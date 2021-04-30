@@ -410,7 +410,7 @@ ALU`Arithmetic Logic Unit
 ALV`Asta La Vista| goodbye
 ALWP`Actual Laughter Was Produced
 AMA`Ask Me Anything
-Against Medical Advice
+Against`Medical Advice
 AMAA`Ask Me Almost Anything
 AMAP`As Much As Possible
 AMC`American Motors Corportation
