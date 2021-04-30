@@ -1,6 +1,6 @@
 import models.SlangWord;
 import models.SlangMaps;
-
+import  models.history;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -37,6 +37,7 @@ public class Main {
                     SlangWord value = SlangMaps.searchBySlang(key);
                     if(!(value == null)){
 //                        Append_to_file(key + "   :   " + value + "\n", "history.txt");
+                        history.addHistory(key + " : " + value + "\n","src/data/history.txt" );
                         System.out.println(value);
                     }
                     else{
@@ -50,11 +51,13 @@ public class Main {
                     System.out.println("Slang word of " + def + " is: ");
                     for(SlangWord slang: keySet){
 //                        Append_to_file(a + "   :   " + slangMap.get(a) + "\n", "history.txt");
+                        history.addHistory(slang + " : " + slang.getDefinition(),"src/data/history.txt");
                         System.out.println(slang);
                     }
                     break;
                 case 3:
                     System.out.print("Your history: ");
+                    history.ShowHistory();
                     break;
                 case 4:
                     System.out.print("Enter slang word: ");
