@@ -1,16 +1,9 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Random;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import models.SlangWord;
+import models.SlangMaps;
+
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 public class Main {
 
     public static Scanner keyboard = new Scanner(System.in);
@@ -18,8 +11,9 @@ public class Main {
         System.out.println("Press Any Key To Continue...");
         new java.util.Scanner(System.in).nextLine();
     }
-
-    public static void Menu(){
+    public static void main(String[] args) {
+         var  SlangMaps = new SlangMaps();
+        SlangMaps.readFromFile();
         String out = "";
         while(!"e".equals(out)){
             System.out.println("1. Find with slang word");
@@ -39,11 +33,25 @@ public class Main {
             switch (choose) {
                 case 1:
                     System.out.print("Your slang word: ");
-
+                    String key = keyboard.nextLine();
+                    SlangWord value = SlangMaps.searchBySlang(key);
+                    if(!(value == null)){
+//                        Append_to_file(key + "   :   " + value + "\n", "history.txt");
+                        System.out.println(value);
+                    }
+                    else{
+                        System.out.println("No definition founded !!");
+                    }
                     break;
                 case 2:
                     System.out.print("Your definition: ");
-
+                    String def = keyboard.nextLine();
+                    List<SlangWord> keySet = SlangMaps.searchByDefinition(def);
+                    System.out.println("Slang word of " + def + " is: ");
+                    for(SlangWord slang: keySet){
+//                        Append_to_file(a + "   :   " + slangMap.get(a) + "\n", "history.txt");
+                        System.out.println(slang);
+                    }
                     break;
                 case 3:
                     System.out.print("Your history: ");
@@ -82,8 +90,5 @@ public class Main {
             }
             Pause();
         }
-    }
-    public static void main(String[] args) {
-       Menu();
     }
 }

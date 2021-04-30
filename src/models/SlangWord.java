@@ -19,8 +19,8 @@ public class SlangWord {
     @Override
     public String toString() {
         String slang = "----------------------------------------".concat(System.lineSeparator())
-                .concat(String.format("Slang: %s", this.slang)).concat(System.lineSeparator())
-                .concat(String.format("Definition: %s", this.definition)).concat(System.lineSeparator())
+                .concat(String.format("Slang : %s", this.slang)).concat(System.lineSeparator())
+                .concat(String.format("Definition : %s", this.definition)).concat(System.lineSeparator())
                 .concat("----------------------------------------").concat(System.lineSeparator());
         return slang;
     }

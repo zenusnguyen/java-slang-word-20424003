@@ -18,7 +18,7 @@ public class SlangMaps {
 
     public void readFromFile() {
         try {
-            File slangList = new File("data/slang.txt");
+            File slangList = new File("src/data/slang.txt");
             Scanner scanner = new Scanner(slangList);
             while (scanner.hasNextLine()) {
                 String slangStr = scanner.nextLine();
