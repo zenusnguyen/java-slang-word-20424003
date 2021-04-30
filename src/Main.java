@@ -1,11 +1,71 @@
-import java.io.*;
-import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Random;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 public class Main {
+    public static HashMap<String, String> slangMap = new HashMap<String, String>();
+    public static ArrayList<String> history = new ArrayList<String>();
     public static Scanner keyboard = new Scanner(System.in);
     public static void Pause(){
         System.out.println("Press Any Key To Continue...");
         new java.util.Scanner(System.in).nextLine();
     }
+    public static int randomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+    public static HashMap<String, String> SlandMap(String url) {
+
+        try{
+            File file = new File(url);
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String tmp = "error";
+            String[] strSplit;
+
+            try {
+                tmp = reader.readLine();
+                while (tmp != null) {
+                    strSplit = tmp.split("`");
+                    System.out.println(strSplit);
+                    slangMap.put(strSplit[0], strSplit[1]);
+                    tmp = reader.readLine();
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Main.class.getName())
+                        .log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName())
+                        .log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName())
+                            .log(Level.SEVERE, null, ex);
+                }
+            }
+
+            return slangMap;
+        } catch(Exception e){
+            System.out.println("Error: " + e);
+        }
+        return slangMap;
+    }
+
+    public static String findSlang(String keyWord) {
+        return slangMap.get(keyWord);
+    }
+
+
     public static void Menu(){
         String out = "";
         while(!"e".equals(out)){
@@ -71,6 +131,7 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-       Menu();
+//       Menu();
+        SlandMap("src/slang.txt");
     }
 }
