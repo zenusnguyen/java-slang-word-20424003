@@ -36,7 +36,6 @@ public class Main {
                     String key = keyboard.nextLine();
                     SlangWord value = SlangMaps.searchBySlang(key);
                     if(!(value == null)){
-//                        Append_to_file(key + "   :   " + value + "\n", "history.txt");
                         history.addHistory(key + " : " + value + "\n","src/data/history.txt" );
                         System.out.println(value);
                     }
@@ -50,7 +49,6 @@ public class Main {
                     List<SlangWord> keySet = SlangMaps.searchByDefinition(def);
                     System.out.println("Slang word of " + def + " is: ");
                     for(SlangWord slang: keySet){
-//                        Append_to_file(a + "   :   " + slangMap.get(a) + "\n", "history.txt");
                         history.addHistory(slang + " : " + slang.getDefinition(),"src/data/history.txt");
                         System.out.println(slang);
                     }
@@ -61,9 +59,10 @@ public class Main {
                     break;
                 case 4:
                     System.out.print("Enter slang word: ");
-                    String slang_key = keyboard.nextLine();
+                    String slandKey = keyboard.nextLine();
                     System.out.print("Enter definition: ");
-
+                    String slandDef = keyboard.nextLine();
+                    SlangMaps.addSlandWord(slandKey,slandDef);
                     break;
                 case 5:
                     System.out.print("Enter slang word you want to edit: ");
