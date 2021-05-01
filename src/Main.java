@@ -3,7 +3,6 @@ import models.SlangMaps;
 import  models.history;
 import java.util.List;
 import java.util.Scanner;
-import java.util.ArrayList;
 public class Main {
 
     public static Scanner keyboard = new Scanner(System.in);
@@ -80,9 +79,9 @@ public class Main {
                     SlangMaps.backUp();
                     break;
                 case 8:
-                    System.out.println("Your slang word today is: ");
-                    String random_key = SlangMaps.randomSlangWord();
-                    System.out.println(random_key + "   :   " + SlangMaps.getByKey(random_key));
+                    System.out.println("Your slang word is: ");
+                    String randomKey = SlangMaps.randomSlangWord();
+                    System.out.println(randomKey + "   :   " + SlangMaps.getByKey(randomKey));
                     break;
                 case 9:
                     SlangMaps.slangGame();
