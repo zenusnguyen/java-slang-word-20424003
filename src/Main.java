@@ -77,7 +77,7 @@ public class Main {
                     SlangMaps.deleteSlangWord(deleteKey);
                     break;
                 case 7:
-
+                    SlangMaps.backUp();
                     break;
                 case 8:
                     System.out.println("Your slang word today is: ");
@@ -85,10 +85,10 @@ public class Main {
                     System.out.println(random_key + "   :   " + SlangMaps.getByKey(random_key));
                     break;
                 case 9:
-
+                    SlangMaps.slangGame();
                     break;
                 case 10:
-
+                    SlangMaps.slangGameDefinition();
                     break;
                 case 11:
                     out = "e";

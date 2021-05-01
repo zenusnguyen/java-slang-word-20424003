@@ -127,14 +127,13 @@ public class SlangMaps {
             System.out.println("Slang word not found !!!");
         }
     }
-    public  void backUp() {
-
+    public void backUp() {
         System.out.println("\n1. Set this slang word list as origin.");
         System.out.println("2. Reset to origin.");
         System.out.print("@@Your choose: ");
         String choose = keyboard.nextLine();
         if(choose.equals("1")){
-            truncateFile("origin.txt");
+            truncateFile("src/data/slang-origin.txt");
             System.out.println("!!! Set this as origin successfully !!!");
         }else{
             slangMap.clear();
@@ -164,7 +163,7 @@ public class SlangMaps {
     public  int randomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
-    public  void SlangGame() {
+    public  void slangGame() {
         ArrayList<String> ansList = new ArrayList<String>();
         String tmp = randomSlangWord();
         for(int i = 0; i < 4; i++){
