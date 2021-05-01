@@ -5,13 +5,10 @@ import java.util.regex.Pattern;
 
 public class SlangMaps {
     protected Map<String, String> slangMap = new HashMap<String, String>();
-
     public SlangMaps(){}
-
     public Map<String, String> getSlangMap() {
         return this.slangMap;
     }
-
     public void setSlangMap(Map<String, String> slangMap) {
         this.slangMap = slangMap;
     }
@@ -105,13 +102,31 @@ public class SlangMaps {
             System.out.println("!!! Add new slangword successfully !!!");
         }
     }
-    public static void editSlangWord(String key, String def) {
+    public  void editSlangWord(String key, String def) {
         if(slangMap.containsKey(key)){
             slangMap.put(key, def);
             truncateFile("src/data/slang.txt");
-            System.out.println("!!! Edit completed !!!");
+            System.out.println("Edit completed !!!");
         }else{
-            System.out.println("!!! Slang word not found !!!");
+            System.out.println("Slang word not found !!!");
         }
     }
+    public  void deleteSlangWord(String slangKey) {
+        Scanner keyboard = new Scanner(System.in);
+        if(slangMap.containsKey(slangKey)){
+            System.out.println(">> Are you sure? (y/n)");
+            System.out.print("@@ Your choose: ");
+            String choose = keyboard.nextLine();
+            if (choose.equals("y")){
+                slangMap.remove(slangKey);
+                truncateFile("src/data/slang.txt");
+                System.out.println("Delete successfully !!!");
+            }
+        }
+        else{
+            System.out.println("Slang word not found !!!");
+        }
+    }
+
+
 }
