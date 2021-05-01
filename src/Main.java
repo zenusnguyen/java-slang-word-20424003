@@ -13,7 +13,7 @@ public class Main {
     }
     public static void main(String[] args) {
          var  SlangMaps = new SlangMaps();
-        SlangMaps.readFromFile();
+         SlangMaps.readFromFile("src/data/slang.txt");
         String out = "";
         while(!"e".equals(out)){
             System.out.println("1. Find with slang word");
@@ -81,7 +81,8 @@ public class Main {
                     break;
                 case 8:
                     System.out.println("Your slang word today is: ");
-
+                    String random_key = SlangMaps.randomSlangWord();
+                    System.out.println(random_key + "   :   " + SlangMaps.getByKey(random_key));
                     break;
                 case 9:
 

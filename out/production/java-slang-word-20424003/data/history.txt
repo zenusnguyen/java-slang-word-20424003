@@ -32,4 +32,8 @@ Definition : Very happy| excited
 Slang : .-.
 Definition : Sad| unhappy
 ----------------------------------------
- : Sad| unhappy
+ : Sad| unhappy>> : ----------------------------------------
+Slang : >>
+Definition : cc
+----------------------------------------
+
