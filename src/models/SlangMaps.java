@@ -105,5 +105,13 @@ public class SlangMaps {
             System.out.println("!!! Add new slangword successfully !!!");
         }
     }
-
+    public static void editSlangWord(String key, String def) {
+        if(slangMap.containsKey(key)){
+            slangMap.put(key, def);
+            truncateFile("src/data/slang.txt");
+            System.out.println("!!! Edit completed !!!");
+        }else{
+            System.out.println("!!! Slang word not found !!!");
+        }
+    }
 }

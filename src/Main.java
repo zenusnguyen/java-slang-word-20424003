@@ -66,7 +66,10 @@ public class Main {
                     break;
                 case 5:
                     System.out.print("Enter slang word you want to edit: ");
-
+                    String editKey = keyboard.nextLine();
+                    System.out.print("Enter definition of slang word: ");
+                    String editDef = keyboard.nextLine();
+                    models.SlangMaps.editSlangWord(editKey,editDef);
                     break;
                 case 6:
                     System.out.print("Slang word you want to delete: ");
