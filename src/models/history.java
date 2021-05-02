@@ -10,7 +10,7 @@ import java.io.IOException;
 public class history {
     public static void ShowHistory() {
         try{
-            File file = new File("src/data/history.txt");
+            File file = new File("data/history.txt");
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String tmp = "error";

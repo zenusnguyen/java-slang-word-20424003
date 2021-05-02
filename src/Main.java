@@ -35,7 +35,7 @@ public class Main {
                     String key = keyboard.nextLine();
                     SlangWord value = SlangMaps.searchBySlang(key);
                     if(!(value == null)){
-                        history.addHistory(key + " : " + value + "\n","src/data/history.txt" );
+                        history.addHistory(key + " : " + value + "\n","data/history.txt" );
                         System.out.println(value);
                     }
                     else{
@@ -48,7 +48,7 @@ public class Main {
                     List<SlangWord> keySet = SlangMaps.searchByDefinition(def);
                     System.out.println("Slang word of " + def + " is: ");
                     for(SlangWord slang: keySet){
-                        history.addHistory(slang + " : " + slang.getDefinition(),"src/data/history.txt");
+                        history.addHistory(slang + " : " + slang.getDefinition(),"data/history.txt");
                         System.out.println(slang);
                     }
                     break;

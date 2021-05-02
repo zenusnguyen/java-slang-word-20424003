@@ -88,24 +88,24 @@ public class SlangMaps {
             choose = keyboard.nextLine();
             if(choose.equals("1")){
                 slangMap.put(slang_key, def_value);
-                truncateFile("src/data/slang.txt");
-                System.out.println("Overwrite successfully !!!");
+                truncateFile("data/slang.txt");
+                System.out.println("Successfully !!!");
             }else{
                 slangMap.put(slang_key, slangMap.get(slang_key) + "| " + def_value );
-                truncateFile("src/data/slang.txt");
+                truncateFile("data/slang.txt");
                 System.out.println("Duplicate successfully !!!");
             }
 
         }else{
             slangMap.put(slang_key, def_value);
-            addToFile(slang_key + "`" + def_value + "\n", "src/data/slang.txt");
-            System.out.println("Add new slangword successfully !!!");
+            addToFile(slang_key + "`" + def_value + "\n", "data/slang.txt");
+            System.out.println("Successfully !!!");
         }
     }
     public  void editSlangWord(String key, String def) {
         if(slangMap.containsKey(key)){
             slangMap.put(key, def);
-            truncateFile("src/data/slang.txt");
+            truncateFile("data/slang.txt");
             System.out.println("Edit completed !!!");
         }else{
             System.out.println("Slang word not found !!!");
@@ -119,7 +119,7 @@ public class SlangMaps {
             String choose = keyboard.nextLine();
             if (choose.equals("y")){
                 slangMap.remove(slangKey);
-                truncateFile("src/data/slang.txt");
+                truncateFile("data/slang.txt");
                 System.out.println("Delete successfully !!!");
             }
         }
@@ -130,16 +130,16 @@ public class SlangMaps {
     public void backUp() {
         System.out.println("\n1. Set this slang word list as origin.");
         System.out.println("2. Reset to origin.");
-        System.out.print("@@Your choose: ");
+        System.out.print("Your choose: ");
         String choose = keyboard.nextLine();
         if(choose.equals("1")){
-            truncateFile("src/data/slang-origin.txt");
-            System.out.println("!!! Set this as origin successfully !!!");
+            truncateFile("data/slang-origin.txt");
+            System.out.println("Successfully !!!");
         }else{
             slangMap.clear();
-            readFromFile("src/data/slang.txt");
-            truncateFile("src/data/slang.txt");
-            System.out.println("!!! Reset to origin successfully !!!");
+            readFromFile("data/slang.txt");
+            truncateFile("data/slang.txt");
+            System.out.println("Successfully !!!");
         }
     }
     public  ArrayList<String> findWitdValue(String value) {
