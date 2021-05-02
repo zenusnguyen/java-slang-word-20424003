@@ -11,7 +11,6 @@ public class Main {
         new java.util.Scanner(System.in).nextLine();
     }
     private static String slangPath = config.getSlangPath();
-    private static String slangOriginPath = config.getSlangOriginPath();
     private static String historyPath = config.getHistoryPath();
     public static void main(String[] args) {
 
