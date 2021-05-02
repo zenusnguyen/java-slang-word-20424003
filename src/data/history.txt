@@ -62,3 +62,23 @@ Definition : Mad| angry
 Slang : >,<
 Definition : Angry| annoyed
 
+>,< : -----------------------------------------------------
+Slang : >,<
+Definition : Angry| annoyed
+
+-----------------------------------------------------
+Slang : PISSED OFF
+Definition : Mad| angry
+ : Mad| angry-----------------------------------------------------
+Slang : GUH
+Definition : Annoyed| angry
+ : Annoyed| angry-----------------------------------------------------
+Slang : >.<
+Definition : Frustrated| angry| upset| in pain
+ : Frustrated| angry| upset| in pain-----------------------------------------------------
+Slang : DROVE
+Definition : Mad| angry
+ : Mad| angry:)) : -----------------------------------------------------
+Slang : :))
+Definition : null
+

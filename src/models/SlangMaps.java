@@ -73,37 +73,37 @@ public class SlangMaps {
         }
     }
 
-    public  void addSlandWord(String slang_key, String def_value) {
+    public  void addSlandWord(String key, String def) {
         String choose;
-        if(slangMap.containsKey(slang_key)){
+        if(slangMap.containsKey(key)){
             System.out.println("Slang word duplicate !!!");
             System.out.println("Choose 1 to overwrite");
             System.out.println("Choose 2 to duplicate to new slang word");
             System.out.print("Your choose: ");
             choose = keyboard.nextLine();
             if(choose.equals("1")){
-                slangMap.put(slang_key, def_value);
+                slangMap.put(key, def);
                 truncateFile(slangPath);
-                System.out.println("Successfully !!!");
+                System.out.println("Successfully !");
             }else{
-                slangMap.put(slang_key, slangMap.get(slang_key) + "| " + def_value );
+                slangMap.put(key, slangMap.get(key) + "| " + def );
                 truncateFile(slangPath);
-                System.out.println("Duplicate successfully !!!");
+                System.out.println("Duplicate successfully !");
             }
 
         }else{
-            slangMap.put(slang_key, def_value);
-            addToFile(slang_key + "`" + def_value + "\n", slangPath);
-            System.out.println("Successfully !!!");
+            slangMap.put(key, def);
+            addToFile(key + "`" + def + "\n", slangPath);
+            System.out.println("Successfully !");
         }
     }
     public  void editSlangWord(String key, String def) {
         if(slangMap.containsKey(key)){
             slangMap.put(key, def);
             truncateFile(slangPath);
-            System.out.println("Edit completed !!!");
+            System.out.println("Edit completed !");
         }else{
-            System.out.println("Slang word not found !!!");
+            System.out.println("Slang word not found !");
         }
     }
     public  void deleteSlangWord(String slangKey) {
@@ -115,11 +115,11 @@ public class SlangMaps {
             if (choose.equals("y")){
                 slangMap.remove(slangKey);
                 truncateFile(slangPath);
-                System.out.println("Delete successfully !!!");
+                System.out.println("Delete successfully !");
             }
         }
         else{
-            System.out.println("Slang word not found !!!");
+            System.out.println("Slang word not found !");
         }
     }
     public void backUp() {
@@ -129,12 +129,12 @@ public class SlangMaps {
         String choose = keyboard.nextLine();
         if(choose.equals("1")){
             truncateFile(slangOriginPath);
-            System.out.println("Successfully !!!");
+            System.out.println("Successfully !");
         }else{
             slangMap.clear();
             readFromFile(slangPath);
             truncateFile(slangPath);
-            System.out.println("Successfully !!!");
+            System.out.println("Successfully !");
         }
     }
     public  ArrayList<String> findWitdValue(String value) {
@@ -176,9 +176,9 @@ public class SlangMaps {
         System.out.print("\nYour choose is: ");
         int choose = keyboard.nextInt();
         if (choose - 1 == true_key_index){
-            System.out.println("Correct answer !!!");
+            System.out.println("Correct answer !");
         }else{
-            System.out.println("Wrong answer !!!");
+            System.out.println("Wrong answer !");
         }
     }
     public  void slangGameDefinition() {
@@ -200,9 +200,9 @@ public class SlangMaps {
         int choose = keyboard.nextInt();
 
         if (choose - 1 == true_key_index){
-            System.out.println("Correct answer !!!");
+            System.out.println("Correct answer !");
         }else{
-            System.out.println("Wrong answer !!!");
+            System.out.println("Wrong answer !");
         }
     }
 

@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import configs.config;
 public class Main {
-
-    public static Scanner keyboard = new Scanner(System.in);
+   static Scanner keyboard = new Scanner(System.in);
     public static void Pause(){
         System.out.println("Press Any Key To Continue...");
         new java.util.Scanner(System.in).nextLine();
@@ -15,6 +14,7 @@ public class Main {
     private static String slangOriginPath = config.getSlangOriginPath();
     private static String historyPath = config.getHistoryPath();
     public static void main(String[] args) {
+
          var  SlangMaps = new SlangMaps();
          SlangMaps.readFromFile(slangPath);
         String out = "";
@@ -31,8 +31,7 @@ public class Main {
             System.out.println("10. Game of definition");
             System.out.println("11. Exit");
             System.out.print("Enter your choose: ");
-            int choose = keyboard.nextInt();
-            String c = keyboard.nextLine();
+            int choose =Integer.parseInt( keyboard.nextLine());
             switch (choose) {
                 case 1:
                     System.out.print("Your slang word: ");
@@ -62,10 +61,10 @@ public class Main {
                     break;
                 case 4:
                     System.out.print("Enter slang word: ");
-                    String slandKey = keyboard.nextLine();
+                    String slangKey = keyboard.nextLine();
                     System.out.print("Enter definition: ");
-                    String slandDef = keyboard.nextLine();
-                    SlangMaps.addSlandWord(slandKey,slandDef);
+                    String slangDef = keyboard.nextLine();
+                    SlangMaps.addSlandWord(slangKey,slangDef);
                     break;
                 case 5:
                     System.out.print("Enter slang word you want to edit: ");
