@@ -7,15 +7,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.BufferedReader;
 import java.io.IOException;
+import configs.config;
 public class history {
+    private static String historyPath= config.getHistoryPath();
     public static void ShowHistory() {
         try{
-            File file = new File("data/history.txt");
+            File file = new File(historyPath);
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String tmp = "error";
             int inc = 0;
-            System.out.println("!!!History!!!");
+            System.out.println("History");
 
             try {
                 tmp = reader.readLine();
@@ -32,7 +34,6 @@ public class history {
             } finally {
                 try {
                     reader.close();
-                    // file.close();
                 } catch (IOException ex) {
                     Logger.getLogger(history.class.getName())
                             .log(Level.SEVERE, null, ex);
@@ -50,12 +51,12 @@ public class history {
             try {
                 fr.write(s);
             } catch (Exception e) {
-                System.out.println("cant write file");
+                System.out.println("Cant write file");
             }finally{
                 fr.close();
             }
         }catch(Exception e){
-            System.out.println("cant open file");
+            System.out.println("Cant open file");
         }
     }
 }

@@ -2,18 +2,13 @@ package models;
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
-
+import configs.config;
 public class SlangMaps {
     protected Map<String, String> slangMap = new HashMap<String, String>();
     public SlangMaps(){}
-    public Map<String, String> getSlangMap() {
-        return this.slangMap;
-    }
     public static Scanner keyboard = new Scanner(System.in);
-    public void setSlangMap(Map<String, String> slangMap) {
-        this.slangMap = slangMap;
-    }
-
+    private static String slangPath = config.getSlangPath();
+    private static String slangOriginPath = config.getSlangOriginPath();
     public void readFromFile(String url) {
         try {
             File slangList = new File(url);
@@ -41,12 +36,12 @@ public class SlangMaps {
             try {
                 fr.write(s);
             } catch (Exception e) {
-                System.out.println("cant write file");
+                System.out.println("Cant write file");
             }finally{
                 fr.close();
             }
         }catch(Exception e){
-            System.out.println("cant open file");
+            System.out.println("Cant open file");
         }
     }
 
@@ -88,24 +83,24 @@ public class SlangMaps {
             choose = keyboard.nextLine();
             if(choose.equals("1")){
                 slangMap.put(slang_key, def_value);
-                truncateFile("data/slang.txt");
+                truncateFile(slangPath);
                 System.out.println("Successfully !!!");
             }else{
                 slangMap.put(slang_key, slangMap.get(slang_key) + "| " + def_value );
-                truncateFile("data/slang.txt");
+                truncateFile(slangPath);
                 System.out.println("Duplicate successfully !!!");
             }
 
         }else{
             slangMap.put(slang_key, def_value);
-            addToFile(slang_key + "`" + def_value + "\n", "data/slang.txt");
+            addToFile(slang_key + "`" + def_value + "\n", slangPath);
             System.out.println("Successfully !!!");
         }
     }
     public  void editSlangWord(String key, String def) {
         if(slangMap.containsKey(key)){
             slangMap.put(key, def);
-            truncateFile("data/slang.txt");
+            truncateFile(slangPath);
             System.out.println("Edit completed !!!");
         }else{
             System.out.println("Slang word not found !!!");
@@ -114,12 +109,12 @@ public class SlangMaps {
     public  void deleteSlangWord(String slangKey) {
 
         if(slangMap.containsKey(slangKey)){
-            System.out.println(">> Are you sure? (y/n)");
-            System.out.print("@@ Your choose: ");
+            System.out.println("Are you sure? (y/n)");
+            System.out.print("Your choose: ");
             String choose = keyboard.nextLine();
             if (choose.equals("y")){
                 slangMap.remove(slangKey);
-                truncateFile("data/slang.txt");
+                truncateFile(slangPath);
                 System.out.println("Delete successfully !!!");
             }
         }
@@ -133,12 +128,12 @@ public class SlangMaps {
         System.out.print("Your choose: ");
         String choose = keyboard.nextLine();
         if(choose.equals("1")){
-            truncateFile("data/slang-origin.txt");
+            truncateFile(slangOriginPath);
             System.out.println("Successfully !!!");
         }else{
             slangMap.clear();
-            readFromFile("data/slang.txt");
-            truncateFile("data/slang.txt");
+            readFromFile(slangPath);
+            truncateFile(slangPath);
             System.out.println("Successfully !!!");
         }
     }

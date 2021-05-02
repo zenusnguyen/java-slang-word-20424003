@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="java-slang-word-20424003:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/java_slang_word_20424003_jar</output-path>
+    <root id="root">
+      <element id="archive" name="java-slang-word-20424003.jar">
+        <element id="module-output" name="java-slang-word-20424003" />
+      </element>
+    </root>
+  </artifact>
+</component>

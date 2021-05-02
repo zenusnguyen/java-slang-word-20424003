@@ -3,6 +3,7 @@ import models.SlangMaps;
 import  models.history;
 import java.util.List;
 import java.util.Scanner;
+import configs.config;
 public class Main {
 
     public static Scanner keyboard = new Scanner(System.in);
@@ -10,9 +11,12 @@ public class Main {
         System.out.println("Press Any Key To Continue...");
         new java.util.Scanner(System.in).nextLine();
     }
+    private static String slangPath = config.getSlangPath();
+    private static String slangOriginPath = config.getSlangOriginPath();
+    private static String historyPath = config.getHistoryPath();
     public static void main(String[] args) {
          var  SlangMaps = new SlangMaps();
-         SlangMaps.readFromFile("src/data/slang.txt");
+         SlangMaps.readFromFile(slangPath);
         String out = "";
         while(!"e".equals(out)){
             System.out.println("1. Find with slang word");
@@ -35,7 +39,7 @@ public class Main {
                     String key = keyboard.nextLine();
                     SlangWord value = SlangMaps.searchBySlang(key);
                     if(!(value == null)){
-                        history.addHistory(key + " : " + value + "\n","data/history.txt" );
+                        history.addHistory(key + " : " + value + "\n",historyPath );
                         System.out.println(value);
                     }
                     else{
@@ -48,7 +52,7 @@ public class Main {
                     List<SlangWord> keySet = SlangMaps.searchByDefinition(def);
                     System.out.println("Slang word of " + def + " is: ");
                     for(SlangWord slang: keySet){
-                        history.addHistory(slang + " : " + slang.getDefinition(),"data/history.txt");
+                        history.addHistory(slang + " : " + slang.getDefinition(),historyPath);
                         System.out.println(slang);
                     }
                     break;
